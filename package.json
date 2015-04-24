@@ -13,6 +13,6 @@
     "less-middleware": "1.0.x"
   },
   "devDependencies": {
-    "nodemon" : "*"
+    "nodemon": "*"
   }
 }

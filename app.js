@@ -1,6 +1,8 @@
-var express = require('express'),
-    http = require('http'),
-    bodyParser = require('body-parser');
+'use strict';
+
+var express = require('express');
+var http = require('http');
+var bodyParser = require('body-parser');
 
 var app = express();
 
@@ -13,18 +15,17 @@ app.set('view engine', 'jade');
 //case sensitive routes,
 //strict routing
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 var users = ['jan', 'ban', 'kim', 'joe', 'san'];
 
-app.get('/users/:from-:to', function(req, res){
-  var from = parseInt(req.params.from, 10),
-      to = parseInt(req.params.to, 10);
+app.get('/users/:from-:to', function (req, res) {
+    var from = parseInt(req.params.from, 10);
+    var to = parseInt(req.params.to, 10);
 
-  res.json(users.slice(from, to +1 ));
+    res.json(users.slice(from, to + 1));
+});
 
-})
-
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express listens on port' + app.get('port'));
+http.createServer(app).listen(app.get('port'), function () {
+    console.log('Express listens on port' + app.get('port'));
 });
